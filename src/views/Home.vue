@@ -1,18 +1,28 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <ul>
+        <li v-for="(list,index) in lists" :key="index">{{list.name}}</li>
+        <About></About>
+      </ul>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
-
+import About from './About'
 export default {
   name: 'home',
   components: {
-    HelloWorld,
+    About,
+  },
+  data(){
+    return {
+      lists:[
+        { name:'彭于晏', age:'18', hobby:'read'},
+        { name:'吴彦祖', age:'18', hobby:'read'},
+        { name:'霍建华', age:'18', hobby:'read'},
+      ],
+    }
   },
 };
 </script>
